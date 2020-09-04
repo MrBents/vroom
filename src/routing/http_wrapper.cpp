@@ -91,7 +91,7 @@ std::string HttpWrapper::ssl_send_then_receive(const std::string& query) const {
 
     tcp::resolver r(io_service);
 
-    tcp::resolver::query q(_server.host, _server.port);
+    tcp::resolver::query q(_server.host, _server.port, boost::asio::ip::resolver_query_base::numeric_service);
 
     asio::connect(ssock.lowest_layer(), r.resolve(q));
     ssock.handshake(asio::ssl::stream_base::handshake_type::client);
