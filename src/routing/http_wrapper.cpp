@@ -61,9 +61,11 @@ std::string HttpWrapper::send_then_receive(const std::string& query) const {
       }
     }
   } catch (std::system_error& e) {
+    std::cout << "HEEEEEEEEE" << "\n";
+    std::cout << e.what() << "\n";
     throw Exception(ERROR::ROUTING,
-                    "Failed to connect to " + _server.host + ":" +
-                      _server.port);
+                    "Failed to connect to " + _server.host + "_:" +
+                      _server.port + ", and the error is: " + e.what());
   }
 
   // Removing headers.
@@ -110,9 +112,11 @@ std::string HttpWrapper::ssl_send_then_receive(const std::string& query) const {
       }
     }
   } catch (std::system_error& e) {
+    std::cout << "HAAAAAAAAAA" << "\n";
+    std::cout << e.what() << "\n";
     throw Exception(ERROR::ROUTING,
-                    "Failed to connect to " + _server.host + ":" +
-                      _server.port);
+                    "Failed to connect to " + _server.host + "_:" +
+                      _server.port + ", and the error is: " + e.what());
   }
 
   // Removing headers.
