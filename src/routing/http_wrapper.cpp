@@ -9,6 +9,7 @@ All rights reserved (see LICENSE).
 
 #include <asio.hpp>
 #include <asio/ssl.hpp>
+#include <iostream>
 
 #include "routing/http_wrapper.h"
 
